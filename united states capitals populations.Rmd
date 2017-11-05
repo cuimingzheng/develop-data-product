@@ -1,0 +1,27 @@
+---
+title: "united States Capitals population map"
+Date: November 4,2017. 
+Name: Cuiming Zheng
+output: ioslides_presentation
+--
+
+
+
+## United States Capitals population map
+
+
+```{r, echo = TRUE}
+library(leaflet)
+data <- read.csv("C:/Users/u292859/Desktop/Reproducible Research/us capitals.csv", header=TRUE, sep=",")
+data %>%
+  leaflet() %>%
+  addTiles() %>%
+  addMarkers( popup=data$city)%>%
+  addCircles(weight = 1, radius = sqrt(data$population) * 30)
+```
+
+## United States Capitals population 
+```{r }
+head(data)
+```
+
